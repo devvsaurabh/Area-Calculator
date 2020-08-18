@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Area Calculator
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function changeField() {
+            var areac = document.getElementById("textfield1").value;
+            var res = (areac*4*7)/(22);
+            var d = Math.sqrt(res);
+            var sides = Math.sqrt(areac);
+            document.getElementById("textfield2").value = areac;
+            document.getElementById("textfield3").value = sides;
+            document.getElementById("textfield4").value = d;
+            console.log(d);
+            console.log(sides);
+            console.log(res)
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Area Calculator</h1>
+        </div>
+        <div class="container">
+            <div class="container">
+                <form action="#" id="form_field">
+                    <h3 style="text-align: center;">Using Javascript</h3>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>Area of Circle</h3>
+                            Area  : <input type="text" id="textfield1" value="" name="circle" onchange="changeField()"><br>
+                            <br>
+                            Diameter: <input type="text" id = "textfield4" value=" ">
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Area of Square</h3>
+                            Area: <input type="text" id="textfield2" value=" " name="Square"><br>
+                            <br>
+                            Side: <input type="text" id = "textfield3" value="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <br>
+            <hr>
+            <div class="container">
+                <form action="/success/" id="form_field1" method="post">
+                    <h3 style="text-align: center;">Using Python</h3>
+                    <br>
+                    <div class="row">
+                        {% if value %}
+                        <div class="col-sm-6">
+                            <h3>Area of Circle</h3>
+                            Area  : <input type="text" id="tf1" value="{{value.area_c}}" name="circle" ><br>
+                            <br>
+                            Diameter: <input type="text" id = "tf2" value="{{value.dia}}">
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Area of Square</h3>
+                            Area: <input type="text" id="tf3" value="{{value.area_square}}" name="Square"><br>
+                            <br>
+                            Side: <input type="text" id = "tf4" value="{{value.side}}">
+                        </div>
+                        {% endif %}
+                        {% if not value %}
+                        <div class="col-sm-6">
+                            <h3>Area of Circle</h3>
+                            Area  : <input type="text" id="tf1" value="" name="circle" ><br>
+                            <br>
+                            Diameter: <input type="text" id = "tf2" value="">
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Area of Square</h3>
+                            Area: <input type="text" id="tf3" value="" name="Square"><br>
+                            <br>
+                            Side: <input type="text" id = "tf4" value="">
+                        </div>
+                        {%endif%}
+
+                    </div>
+                    <br>
+                    <br>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
